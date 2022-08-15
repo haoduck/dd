@@ -87,7 +87,8 @@ case $dhcp in
 esac
 GET_NETCMD
 
-if [[ $(curl -fsSL -m 10 http://ipinfo.io/json | grep "\"country\": \"CN\"") ]];then
+geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla) || geo=''
+if [[ $(echo "$geo" | grep "\"country\": \"CN\"") ]];then
     CMIRROR="--mirror http://mirrors.aliyun.com/centos/"
     CVMIRROR="--mirror http://mirrors.aliyun.com/centos-vault/"
     DMIRROR="--mirror http://mirrors.aliyun.com/debian/"
