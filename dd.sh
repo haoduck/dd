@@ -88,10 +88,10 @@ esac
 GET_NETCMD
 
 if [[ $(curl -fsSL -m 10 http://ipinfo.io/json | grep "\"country\": \"CN\"") ]];then
-    CMIRROR="--mirror http://mirrors.ustc.edu.cn/centos/"
-    CVMIRROR="--mirror http://mirrors.ustc.edu.cn/centos-vault/"
-    DMIRROR="--mirror http://mirrors.ustc.edu.cn/debian/"
-    UMIRROR="--mirror http://mirrors.ustc.edu.cn/ubuntu/"
+    CMIRROR="--mirror http://mirrors.aliyun.com/centos/"
+    CVMIRROR="--mirror http://mirrors.aliyun.com/centos-vault/"
+    DMIRROR="--mirror http://mirrors.aliyun.com/debian/"
+    UMIRROR="--mirror http://mirrors.aliyun.com/ubuntu/"
 else
     CMIRROR=''
     CVMIRROR=''
