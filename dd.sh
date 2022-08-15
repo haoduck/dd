@@ -7,13 +7,13 @@
 GET_NETCMD(){
     if [[ $static == 'true' ]];then
         MAINIP=$(ip route get 1 | awk -F 'src ' '{print $2}' | awk '{print $1}')
-        GATEWAYIP=$(ip route | grep default | awk '{print $3}')
+        GATEWAYIP=$(ip route | grep default | grep onlink | awk '{print $3}')
         SUBNET=$(ip -o -f inet addr show | awk '/scope global/{sub(/[^.]+\//,"0/",$4);print $4}' | head -1 | awk -F '/' '{print $2}')
         value=$(( 0xffffffff ^ ((1 << (32 - $SUBNET)) - 1) ))
         NETMASK="$(( (value >> 24) & 0xff )).$(( (value >> 16) & 0xff )).$(( (value >> 8) & 0xff )).$(( value & 0xff ))"
         
         echo -e "MAINIP: ${MAINIP}\nGATEWAYIP: ${GATEWAYIP}\nNETMASK: ${NETMASK}"
-        read -p "请检查是否正确(is ok?)[Y/n][Default Yes]: " input
+        read -p "请检查是否正确(is ok?)!!![Y/n][Default Yes]: " input
         case $input in
             [yY][eE][sS]|[yY]) NETCMD="--ip-addr ${MAINIP} --ip-gate ${GATEWAYIP} --ip-mask ${NETMASK}" ;;
             [nN][oO]|[nN]) UPDATE_NETCMD ;;
@@ -33,7 +33,7 @@ UPDATE_NETCMD(){
     if [[ ${NEW_NETMASK} ]];then NETMASK=${NEW_NETMASK}; fi
 
     echo -e "MAINIP: ${MAINIP}\nGATEWAYIP: ${GATEWAYIP}\nNETMASK: ${NETMASK}"
-    read -p "请再次检查是否正确(is ok?)[Y/n][Default Yes]: " input
+    read -p "请再次检查是否正确(is ok?)!!![Y/n][Default Yes]: " input
     case $input in
         [yY][eE][sS]|[yY]) NETCMD="--ip-addr ${MAINIP} --ip-gate ${GATEWAYIP} --ip-mask ${NETMASK}" ;;
         [nN][oO]|[nN]) UPDATE_NETCMD ;;
@@ -100,7 +100,7 @@ else
 fi
 
 clear
-echo "                                                              "
+echo ""
 echo "IP: $MAINIP"
 echo "网关: $GATEWAYIP"
 echo "网络掩码: $NETMASK"
@@ -146,7 +146,7 @@ echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:
 echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
 echo ""
 echo "  自定义镜像请使用：bash /tmp/InstallNET.sh -dd '您的直连'"
-echo -n "请输入编号: "
+echo -n "请输入编号(Input number): "
 read N
 
 RUN(){
