@@ -87,7 +87,7 @@ case $dhcp in
 esac
 GET_NETCMD
 
-geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla) || geo=''
+geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip Mozilla) || geo=''
 if [[ $(echo "$geo" | grep "\"country\": \"CN\"") ]];then
     DEFAULT_CN=Y
 else
@@ -97,8 +97,8 @@ fi
 clear
 echo ""
 echo "IP: $MAINIP"
-echo "网关: $GATEWAYIP"
-echo "网络掩码: $NETMASK"
+echo "GATEWAY: $GATEWAYIP"
+echo "NETMASK: $NETMASK"
 echo ""
 echo "请选择您需要的镜像包:"
 echo ""
@@ -138,14 +138,16 @@ echo "  27) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  28) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  29) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
 echo ""
-echo "  自定义镜像请使用：bash /tmp/InstallNET.sh -dd '您的直连'"
+echo "  99) 自定义直链(custom url)"
+echo ""
+echo "  自定义镜像也可以使用：bash /tmp/InstallNET.sh -dd '您的直连'"
 echo -n "请输入编号(Input number): "
 read N
 
 RUN(){
     N=$1
+    if [[ $N == 99 ]];then read -p "Input your url: " DDURL; fi
     read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]" input
     if [[ -z $input ]];then input=$DEFAULT_CN; fi
     case $input in
@@ -192,13 +194,13 @@ RUN(){
     esac
     read -p "回车确认开始执行(Press any key to continue)，CTRL+C退出"
     case $N in
-        1) bash /tmp/InstallNET.sh -d 11 -v 64 -a $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        2) bash /tmp/InstallNET.sh -d 10 -v 64 -a $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        3) bash /tmp/InstallNET.sh -d 9 -v 64 -a $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        4) bash /tmp/InstallNET.sh -u 20.04 -v 64 -a $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        5) bash /tmp/InstallNET.sh -u 18.04 -v 64 -a $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        6) bash /tmp/InstallNET.sh -u 16.04 -v 64 -a $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        7) bash /tmp/InstallNET.sh -c 6 -v 64 -a $NETCMD $CMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        1) bash /tmp/InstallNET.sh -d 11 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        2) bash /tmp/InstallNET.sh -d 10 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        3) bash /tmp/InstallNET.sh -d 9 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        4) bash /tmp/InstallNET.sh -u 20.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        5) bash /tmp/InstallNET.sh -u 18.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        6) bash /tmp/InstallNET.sh -u 16.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        7) bash /tmp/InstallNET.sh -c 6 -v 64 $NETCMD $CMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         8) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
         9) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
         10) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/rocky-8-image' $DMIRROR ;;
@@ -222,6 +224,7 @@ RUN(){
         28) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1a8gEiZTEG5aeTrTflP9icAZF-HJhYU1N" $DMIRROR ;;
         29) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eboWyVSkt1Hcnsl2dqgA-8p40Qbk2QvG" $DMIRROR ;;
         30) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1IY8IyLt66uKhZ7Jb4QzEb_bTUUqU76_3" $DMIRROR ;;
+        99) bash /tmp/InstallNET.sh $NETCMD -dd "$DDURL" $DMIRROR ;;
         *) echo "Wrong input!" ;;
     esac
 }
