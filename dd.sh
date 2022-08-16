@@ -2,7 +2,7 @@
 
 #CentOS、Rocky静态IP代码部分来自hiCasper
 #Windows部分来自veip007
-#基于以上添加了自定义密码、自定义端口
+#基于以上添加了custom password、自定义端口
 
 GET_NETCMD(){
     if [[ $static == 'true' ]];then
@@ -89,15 +89,9 @@ GET_NETCMD
 
 geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla) || geo=''
 if [[ $(echo "$geo" | grep "\"country\": \"CN\"") ]];then
-    CMIRROR="--mirror http://mirrors.aliyun.com/centos/"
-    CVMIRROR="--mirror http://mirrors.aliyun.com/centos-vault/"
-    DMIRROR="--mirror http://mirrors.aliyun.com/debian/"
-    UMIRROR="--mirror http://mirrors.aliyun.com/ubuntu/"
+    DEFAULT_CN=Y
 else
-    CMIRROR=''
-    CVMIRROR=''
-    DMIRROR=''
-    UMIRROR=''
+    DEFAULT_CN=n
 fi
 
 clear
@@ -108,19 +102,19 @@ echo "网络掩码: $NETMASK"
 echo ""
 echo "请选择您需要的镜像包:"
 echo ""
-echo "  1) Debian 11 [自定义密码]"
-echo "  2) Debian 10 [自定义密码]"
-echo "  3) Debian 9 [自定义密码]"
-echo "  4) Ubuntu 20.04 [自定义密码]"
-echo "  5) Ubuntu 18.04 [自定义密码]"
-echo "  6) Ubuntu 16.04 [自定义密码]"
-echo "  7) CentOS 6 [自定义密码]"
+echo "  1) Debian 11 [custom password]"
+echo "  2) Debian 10 [custom password]"
+echo "  3) Debian 9 [custom password]"
+echo "  4) Ubuntu 20.04 [custom password]"
+echo "  5) Ubuntu 18.04 [custom password]"
+echo "  6) Ubuntu 16.04 [custom password]"
+echo "  7) CentOS 6 [custom password]"
 echo ""
 echo "  以下CentOS、Rocky部分来自hiCasper"
 echo ""
-echo "  8) CentOS 7.8 [自定义密码]"
-echo "  9) CentOS 7.6 [自定义密码]"
-echo "  10) Rocky Linux 8.6 [自定义密码]"
+echo "  8) CentOS 7.8 [custom password]"
+echo "  9) CentOS 7.6 [custom password]"
+echo "  10) Rocky Linux 8.6 [custom password]"
 echo ""
 echo "  以下Windows部分来自veip007"
 echo ""
@@ -152,6 +146,43 @@ read N
 
 RUN(){
     N=$1
+    read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]" input
+    if [[ -z $input ]];then input=$DEFAULT_CN; fi
+    case $input in
+        [yY][eE][sS]|[yY]) CN=true ;;
+        [nN][oO]|[nN]) CN=false ;;
+    esac
+    if [[ $CN == 'true' ]];then
+        echo "  选择一个源"
+        echo "  1) mirrors.aliyun.com [Default]"
+        echo "  2) mirrors.tencent.com"
+        echo "  3) mirrors.163.com"
+        echo "  4) mirrors.huaweicloud.com"
+        echo "  5) mirrors.tuna.tsinghua.edu.cn"
+        echo "  6) mirrors.ustc.edu.cn"
+        echo "  7) mirrors.tencentyun.com [仅内网Intranet!!!]"
+        echo "  99) 手动输入,示例: http://mirrors.aliyun.com"
+        read -p "选择一个源(Input number): " input
+        case $input in
+            1) mirror=http://mirrors.aliyun.com ;;
+            2) mirror=http://mirrors.tencent.com ;;
+            3) mirror=http://mirrors.163.com ;;
+            4) mirror=http://mirrors.huaweicloud.com ;;
+            5) mirror=http://mirrors.tuna.tsinghua.edu.cn ;;
+            6) mirror=http://mirrors.ustc.edu.cn ;;
+            7) mirror=http://mirrors.tencentyun.com ;;
+            99) if [[ ! $input =~ ^http:// ]] && [[ ! $input =~ ^https:// ]];then input=http://${input}; fi; if [[ $input =~ /$ ]];then input=${input:0:-1}; fi; mirror=$input ;;
+        esac
+        CMIRROR="--mirror ${mirror}/centos/"
+        CVMIRROR="--mirror ${mirror}/centos-vault/"
+        DMIRROR="--mirror ${mirror}/debian/"
+        UMIRROR="--mirror ${mirror}/ubuntu/"
+    else
+        CMIRROR=''
+        CVMIRROR=''
+        DMIRROR=''
+        UMIRROR=''
+    fi
     case $N in
         1|2|3|4|5|6|7|8|9|10|22)
         read -p "Input root password[Default: haoduck.com]: " password
