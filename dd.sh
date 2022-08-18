@@ -110,6 +110,8 @@ echo "  5) Ubuntu 18.04 [custom password]"
 echo "  6) Ubuntu 16.04 [custom password]"
 echo "  7) CentOS 6 [custom password]"
 echo ""
+echo "  ————————以下起均为dd模式————————"
+echo ""
 echo "  以下CentOS、Rocky部分来自hiCasper"
 echo ""
 echo "  8) CentOS 7.8 [custom password]"
@@ -138,6 +140,14 @@ echo "  27) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  28) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  29) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
 echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+echo ""
+echo "  以下Windows部分来自haoduck，国内鸡专用，国外鸡用特别慢(Suitable for Chinese servers!!!)"
+echo ""
+echo "  31) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
+echo "  32) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
+echo "  33) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
+echo "  34) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
+echo "  35) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
 echo ""
 echo "  99) 自定义直链(custom url)"
 echo ""
@@ -224,6 +234,11 @@ RUN(){
         28) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1a8gEiZTEG5aeTrTflP9icAZF-HJhYU1N" $DMIRROR ;;
         29) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eboWyVSkt1Hcnsl2dqgA-8p40Qbk2QvG" $DMIRROR ;;
         30) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1IY8IyLt66uKhZ7Jb4QzEb_bTUUqU76_3" $DMIRROR ;;
+        31) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win10-ltsc-x64-cn.vhd.gz ' $DMIRROR ;;
+        32) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win7-ent-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
+        33) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win8.1-ent-x64-cn.vhd.gz ' $DMIRROR ;;
+        34) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2008r2-data-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
+        35) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2012r2-data-x64-cn.vhd.gz ' $DMIRROR ;;
         99) bash /tmp/InstallNET.sh $NETCMD -dd "$DDURL" $DMIRROR ;;
         *) echo "Wrong input!" ;;
     esac
