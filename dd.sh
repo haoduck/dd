@@ -75,6 +75,9 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+if [[ `command -v apt-get` ]];then apt-get update && apt-get install -y curl wget file xz-utils; fi
+if [[ `command -v yum` ]];then yum install -y curl wget file xz; fi
+
 curl -sSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/MoeClub/Note@latest/InstallNET.sh
@@ -87,8 +90,8 @@ case $dhcp in
 esac
 GET_NETCMD
 
-geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip Mozilla) || geo=''
-if [[ $(echo "$geo" | grep "\"country\": \"CN\"") ]];then
+geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla|sed 's/,/,\n/g') || geo=''
+if [[ $(echo "$geo" | grep "country"|grep "CN") ]];then
     DEFAULT_CN=Y
 else
     DEFAULT_CN=n
@@ -210,7 +213,7 @@ RUN(){
         4) bash /tmp/InstallNET.sh -u 20.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         5) bash /tmp/InstallNET.sh -u 18.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         6) bash /tmp/InstallNET.sh -u 16.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        7) bash /tmp/InstallNET.sh -c 6 -v 64 $NETCMD $CMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        7) bash /tmp/InstallNET.sh -c 6.10 -v 64 $NETCMD $CVMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         8) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
         9) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
         10) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/rocky-8-image' $DMIRROR ;;
