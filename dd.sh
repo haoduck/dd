@@ -82,6 +82,7 @@ curl -sSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/haoduck/dd@lates
 #https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/MoeClub/Note@latest/InstallNET.sh
 
+clear
 read -p "是否使用DHCP(Use DHCP)[Y/n][Default No]: " dhcp
 case $dhcp in
     [yY][eE][sS]|[yY]) static=false ;;
@@ -97,70 +98,85 @@ else
     DEFAULT_CN=n
 fi
 
-clear
-echo ""
-echo "IP: $MAINIP"
-echo "GATEWAY: $GATEWAYIP"
-echo "NETMASK: $NETMASK"
-echo ""
-echo "请选择您需要的镜像包:"
-echo ""
-echo "  1) Debian 11 [custom password]"
-echo "  2) Debian 10 [custom password]"
-echo "  3) Debian 9 [custom password]"
-echo "  4) Ubuntu 20.04 [custom password]"
-echo "  5) Ubuntu 18.04 [custom password]"
-echo "  6) Ubuntu 16.04 [custom password]"
-echo "  7) CentOS 6 [custom password]"
-echo ""
-echo "  ————————以下起均为dd模式————————"
-echo ""
-echo "  以下CentOS、Rocky部分来自hiCasper"
-echo ""
-echo "  8) CentOS 7.8 [custom password]"
-echo "  9) CentOS 7.6 [custom password]"
-echo "  10) Rocky Linux 8.6 [custom password]"
-echo ""
-echo "  以下Windows部分来自veip007"
-echo ""
-echo "  11) 萌咖Win7x64 用户名:Administrator  密码：Vicer"
-echo "  12) Win2019 By:MeowLove  密码：cxthhhhh.com"
-echo "  13) Win2016 By:MeowLove  密码：cxthhhhh.com"
-echo "  14) Win2012 R2 By:MeowLove  密码：cxthhhhh.com"
-echo "  15) Win2008 R2 By:MeowLove  密码：cxthhhhh.com"
-echo "  16) Windows 7 Vienna By:MeowLove  密码：cxthhhhh.com"
-echo "  17) Windows 2003 Vienna By:MeowLove  密码：cxthhhhh.com"
-echo "  18) Win7x32 By:老司机  用户名:Administrator  密码：Windows7x86-Chinese"
-echo "  19) Win-2003x32 By:老司机  用户名:Administrator  密码：WinSrv2003x86-Chinese"
-echo "  20) Win2008x64 By:老司机  用户名:Administrator  密码：WinSrv2008x64-Chinese"
-echo "  21) Win2012R2x64 By:老司机  用户名:Administrator  密码：WinSrv2012r2"
-echo "  22) CentOS 8 用户名：root 密码：cxthhhhh.com 推荐512M以上使用"
-echo "  23) Win7x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  24) Win7x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  25) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  26) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  27) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  28) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  29) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-echo ""
-echo "  以下Windows部分来自haoduck，国内鸡专用，国外鸡用特别慢(Suitable for Chinese servers!!!)"
-echo ""
-echo "  31) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
-echo "  32) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
-echo "  33) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
-echo "  34) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
-echo "  35) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
-echo ""
-echo "  99) 自定义直链(custom url)"
-echo ""
-echo "  自定义镜像也可以使用：bash /tmp/InstallNET.sh -dd '您的直连'"
-echo -n "请输入编号(Input number): "
-read N
+print_linux(){
+    echo ""
+    echo "请选择您需要的镜像包:"
+    echo ""
+    echo "  1) Debian 11 [custom password]"
+    echo "  2) Debian 10 [custom password]"
+    echo "  3) Debian 9 [custom password]"
+    echo "  4) Ubuntu 20.04 [custom password]"
+    echo "  5) Ubuntu 18.04 [custom password]"
+    echo "  6) Ubuntu 16.04 [custom password]"
+    echo "  7) CentOS 6 [custom password]"
+    echo ""
+    echo "  ————————以下起均为dd模式————————"
+    echo ""
+    echo "  以下CentOS、Rocky部分来自hiCasper"
+    echo ""
+    echo "  8) CentOS 7.8 [custom password]"
+    echo "  9) CentOS 7.6 [custom password]"
+    echo "  10) Rocky Linux 8.6 [custom password]"
+}
+
+print_win(){
+    echo ""
+    echo "  以下Windows部分来自veip007"
+    echo ""
+    echo "  11) 萌咖Win7x64 用户名:Administrator  密码：Vicer"
+    echo "  12) Win2019 By:MeowLove  密码：cxthhhhh.com"
+    echo "  13) Win2016 By:MeowLove  密码：cxthhhhh.com"
+    echo "  14) Win2012 R2 By:MeowLove  密码：cxthhhhh.com"
+    echo "  15) Win2008 R2 By:MeowLove  密码：cxthhhhh.com"
+    echo "  16) Windows 7 Vienna By:MeowLove  密码：cxthhhhh.com"
+    echo "  17) Windows 2003 Vienna By:MeowLove  密码：cxthhhhh.com"
+    echo "  18) Win7x32 By:老司机  用户名:Administrator  密码：Windows7x86-Chinese"
+    echo "  19) Win-2003x32 By:老司机  用户名:Administrator  密码：WinSrv2003x86-Chinese"
+    echo "  20) Win2008x64 By:老司机  用户名:Administrator  密码：WinSrv2008x64-Chinese"
+    echo "  21) Win2012R2x64 By:老司机  用户名:Administrator  密码：WinSrv2012r2"
+    echo "  22) CentOS 8 用户名：root 密码：cxthhhhh.com 推荐512M以上使用"
+    echo "  23) Win7x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  24) Win7x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  25) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  26) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  27) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  28) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  29) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo ""
+    echo "  以下Windows部分来自haoduck，国内鸡专用，国外鸡用特别慢(Suitable for Chinese servers!!!)"
+    echo ""
+    echo "  31) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  32) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  33) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  34) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  35) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
+}
+
+print_menu(){
+    clear
+    echo ""
+    echo "IP: $MAINIP"
+    echo "GATEWAY: $GATEWAYIP"
+    echo "NETMASK: $NETMASK"
+    print_linux
+    if [[ $1 == 'win' ]];then print_win; fi
+    echo ""
+    echo "  99) 查看更多(Windows部分)"
+    echo ""
+    echo "  100) 自定义直链(custom url)"
+    echo ""
+    echo "  自定义镜像也可以使用：bash /tmp/InstallNET.sh -dd '您的直连'"
+    echo -n "请输入编号(Input number): "
+    read N
+}
+
+print_menu
 
 RUN(){
     N=$1
-    if [[ $N == 99 ]];then read -p "Input your url: " DDURL; fi
+    if [[ $N == 99 ]];then print_linux; print_menu win; fi
+    if [[ $N == 100 ]];then read -p "Input your url: " DDURL; fi
     read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]" input
     if [[ -z $input ]];then input=$DEFAULT_CN; fi
     case $input in
@@ -242,7 +258,7 @@ RUN(){
         33) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win8.1-ent-x64-cn.vhd.gz ' $DMIRROR ;;
         34) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2008r2-data-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
         35) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2012r2-data-x64-cn.vhd.gz ' $DMIRROR ;;
-        99) bash /tmp/InstallNET.sh $NETCMD -dd "$DDURL" $DMIRROR ;;
+        100) bash /tmp/InstallNET.sh $NETCMD -dd "$DDURL" $DMIRROR ;;
         *) echo "Wrong input!" ;;
     esac
 }
