@@ -12,6 +12,11 @@ GET_NETCMD(){
         value=$(( 0xffffffff ^ ((1 << (32 - $SUBNET)) - 1) ))
         NETMASK="$(( (value >> 24) & 0xff )).$(( (value >> 16) & 0xff )).$(( (value >> 8) & 0xff )).$(( value & 0xff ))"
         
+        #有些VPS获取到的掩码是255.255.255.255(/32)，显然是不对的，所以对此情况另外设置一个可能更合适的掩码
+        if [[ "$NETMASK" == "255.255.255.255" ]];then
+            NETMASK='255.255.0.0'
+        fi
+        
         echo -e "MAINIP: ${MAINIP}\nGATEWAYIP: ${GATEWAYIP}\nNETMASK: ${NETMASK}"
         read -p "请检查是否正确(is ok?)!!![Y/n][Default Yes]: " input
         case $input in
