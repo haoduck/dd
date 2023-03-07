@@ -172,8 +172,10 @@ print_menu(){
     echo "  100) 自定义直链(custom url)"
     echo ""
     echo "  自定义镜像也可以使用：bash /tmp/InstallNET.sh -dd '您的直连'"
-    echo -n "请输入编号(Input number): "
-    read N
+    while [[ -z $N ]];do
+        echo -n "请输入编号(Input number): "
+        read N
+    done
 }
 
 print_menu
