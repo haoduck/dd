@@ -107,55 +107,56 @@ print_linux(){
     echo ""
     echo "请选择您需要的镜像包:"
     echo ""
-    echo "  1) Debian 11 [custom password]"
-    echo "  2) Debian 10 [custom password]"
-    echo "  3) Debian 9 [custom password]"
-    echo "  4) Ubuntu 20.04 [custom password]"
-    echo "  5) Ubuntu 18.04 [custom password]"
-    echo "  6) Ubuntu 16.04 [custom password]"
-    echo "  7) CentOS 6 [custom password]"
+    echo "  1) Debian 12 [custom password]"
+    echo "  2) Debian 11 [custom password]"
+    echo "  3) Debian 10 [custom password]"
+    echo "  4) Debian 9 [custom password]"
+    echo "  5) Ubuntu 20.04 [custom password]"
+    echo "  6) Ubuntu 18.04 [custom password]"
+    echo "  7) Ubuntu 16.04 [custom password]"
+    echo "  8) CentOS 6 [custom password]"
     echo ""
     echo "  ————————以下起均为dd模式————————"
     echo ""
     echo "  以下CentOS、Rocky部分来自hiCasper"
     echo ""
-    echo "  8) CentOS 7.8 [custom password]"
-    echo "  9) CentOS 7.6 [custom password]"
-    echo "  10) Rocky Linux 8.6 [custom password]"
+    echo "  9) CentOS 7.8 [custom password]"
+    echo "  10) CentOS 7.6 [custom password]"
+    echo "  11) Rocky Linux 8.6 [custom password]"
 }
 
 print_win(){
     echo ""
     echo "  以下Windows部分来自veip007"
     echo ""
-    echo "  11) 萌咖Win7x64 用户名:Administrator  密码：Vicer"
-    echo "  12) Win2019 By:MeowLove  密码：cxthhhhh.com"
-    echo "  13) Win2016 By:MeowLove  密码：cxthhhhh.com"
-    echo "  14) Win2012 R2 By:MeowLove  密码：cxthhhhh.com"
-    echo "  15) Win2008 R2 By:MeowLove  密码：cxthhhhh.com"
-    echo "  16) Windows 7 Vienna By:MeowLove  密码：cxthhhhh.com"
-    echo "  17) Windows 2003 Vienna By:MeowLove  密码：cxthhhhh.com"
-    echo "  18) Win7x32 By:老司机  用户名:Administrator  密码：Windows7x86-Chinese"
-    echo "  19) Win-2003x32 By:老司机  用户名:Administrator  密码：WinSrv2003x86-Chinese"
-    echo "  20) Win2008x64 By:老司机  用户名:Administrator  密码：WinSrv2008x64-Chinese"
-    echo "  21) Win2012R2x64 By:老司机  用户名:Administrator  密码：WinSrv2012r2"
-    echo "  22) CentOS 8 用户名：root 密码：cxthhhhh.com 推荐512M以上使用"
-    echo "  23) Win7x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  24) Win7x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  25) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  26) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  27) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  28) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  29) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  30) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  12) 萌咖Win7x64 用户名:Administrator  密码：Vicer"
+    echo "  13) Win2019 By:MeowLove  密码：cxthhhhh.com"
+    echo "  14) Win2016 By:MeowLove  密码：cxthhhhh.com"
+    echo "  15) Win2012 R2 By:MeowLove  密码：cxthhhhh.com"
+    echo "  16) Win2008 R2 By:MeowLove  密码：cxthhhhh.com"
+    echo "  17) Windows 7 Vienna By:MeowLove  密码：cxthhhhh.com"
+    echo "  18) Windows 2003 Vienna By:MeowLove  密码：cxthhhhh.com"
+    echo "  19) Win7x32 By:老司机  用户名:Administrator  密码：Windows7x86-Chinese"
+    echo "  20) Win-2003x32 By:老司机  用户名:Administrator  密码：WinSrv2003x86-Chinese"
+    echo "  21) Win2008x64 By:老司机  用户名:Administrator  密码：WinSrv2008x64-Chinese"
+    echo "  22) Win2012R2x64 By:老司机  用户名:Administrator  密码：WinSrv2012r2"
+    echo "  23) CentOS 8 用户名：root 密码：cxthhhhh.com 推荐512M以上使用"
+    echo "  24) Win7x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  25) Win7x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  26) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  27) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  28) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  29) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  30) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
+    echo "  31) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
     echo ""
     echo "  以下Windows部分来自haoduck，国内鸡专用，国外鸡用特别慢(Suitable for Chinese servers!!!)"
     echo ""
-    echo "  31) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  32) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  33) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  34) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  35) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  32) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  33) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  34) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  35) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
+    echo "  36) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
 }
 
 print_menu(){
@@ -230,41 +231,42 @@ RUN(){
     esac
     read -p "回车确认开始执行(Press any key to continue)，CTRL+C退出"
     case $N in
-        1) bash /tmp/InstallNET.sh -d 11 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        2) bash /tmp/InstallNET.sh -d 10 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        3) bash /tmp/InstallNET.sh -d 9 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        4) bash /tmp/InstallNET.sh -u 20.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        5) bash /tmp/InstallNET.sh -u 18.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        6) bash /tmp/InstallNET.sh -u 16.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        7) bash /tmp/InstallNET.sh -c 6.10 -v 64 $NETCMD $CVMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        8) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
-        9) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
-        10) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/rocky-8-image' $DMIRROR ;;
-        11) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1qhE4hHkCAgAiRby8WHngNduHHhqrUeMQ' $DMIRROR ;;
-        12) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1IXdK-ruDrNmorxZRoJaep1Fo9p4aPi0s' $DMIRROR ;;
-        13) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1JnbvgbvF4hzT1msk1RJ-rjrzqqzTwI1I' $DMIRROR ;;
-        14) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1vz2Y9kPlbRYdP8blD0oGs5MY7EfYVgFR' $DMIRROR ;;
-        15) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1dvNvV9OLm-x6p9sUbnRrKTLDuaiVj_Kg' $DMIRROR ;;
-        16) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1O3jXs9KagrCb1SbM-DVZMAZ7gw9r3Vtp' $DMIRROR ;;
-        17) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1PLG3EdCziMMTIWz1vnUupMPmje2pQX43' $DMIRROR ;;
-        18) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=16Xh4iq6guHWT92MAr-NCOzStZqMTdnmU' $DMIRROR ;;
-        19) bash /tmp/InstallNET.sh $NETCMD -dd 'https://drive.google.com/open?id=1rzkH24tCtwPvcT3HquoF9tZgcj022voG' $DMIRROR ;;
-        20) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1wtUWaag5pVwmN-QUfTSJ6xbNWulLbLy-' $DMIRROR ;;
-        21) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1GUdLXMwBx4uM8-iBU6ClcD5HRmkURuEl' $DMIRROR ;;
-        22) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd "https://odc.cxthhhhh.com/d/SyStem/CentOS/CentOS_8.X_x64_Legacy_NetInstallation_Stable_v6.8.vhd.gz" $DMIRROR ;;
-        23) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1fGsryTy6xZi5EC9GlOpvqTK-Uty0_gFo" $DMIRROR ;;
-        24) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1LxzyhswxkpI_BqUolnI0HyawNvPQJHAO" $DMIRROR ;;
-        25) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1SKUFoUujxh3sTtLIWWcBW8riibd1q5ka" $DMIRROR ;;
-        26) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1GUz7Suysv0S7qRuyB9vQ_IGkTbFckFcE" $DMIRROR ;;
-        27) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eA35gszGgUXI6P7dR5g5sqsIPnMJwUuN" $DMIRROR ;;
-        28) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1a8gEiZTEG5aeTrTflP9icAZF-HJhYU1N" $DMIRROR ;;
-        29) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eboWyVSkt1Hcnsl2dqgA-8p40Qbk2QvG" $DMIRROR ;;
-        30) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1IY8IyLt66uKhZ7Jb4QzEb_bTUUqU76_3" $DMIRROR ;;
-        31) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win10-ltsc-x64-cn.vhd.gz ' $DMIRROR ;;
-        32) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win7-ent-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
-        33) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win8.1-ent-x64-cn.vhd.gz ' $DMIRROR ;;
-        34) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2008r2-data-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
-        35) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2012r2-data-x64-cn.vhd.gz ' $DMIRROR ;;
+        1) bash /tmp/InstallNET.sh -d 12 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        2) bash /tmp/InstallNET.sh -d 11 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        3) bash /tmp/InstallNET.sh -d 10 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        4) bash /tmp/InstallNET.sh -d 9 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        5) bash /tmp/InstallNET.sh -u 20.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        6) bash /tmp/InstallNET.sh -u 18.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        7) bash /tmp/InstallNET.sh -u 16.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        8) bash /tmp/InstallNET.sh -c 6.10 -v 64 $NETCMD $CVMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        9) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
+        10) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
+        11) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd 'https://api.moetools.net/get/rocky-8-image' $DMIRROR ;;
+        12) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1qhE4hHkCAgAiRby8WHngNduHHhqrUeMQ' $DMIRROR ;;
+        13) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1IXdK-ruDrNmorxZRoJaep1Fo9p4aPi0s' $DMIRROR ;;
+        14) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1JnbvgbvF4hzT1msk1RJ-rjrzqqzTwI1I' $DMIRROR ;;
+        15) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1vz2Y9kPlbRYdP8blD0oGs5MY7EfYVgFR' $DMIRROR ;;
+        16) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1dvNvV9OLm-x6p9sUbnRrKTLDuaiVj_Kg' $DMIRROR ;;
+        17) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1O3jXs9KagrCb1SbM-DVZMAZ7gw9r3Vtp' $DMIRROR ;;
+        18) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1PLG3EdCziMMTIWz1vnUupMPmje2pQX43' $DMIRROR ;;
+        19) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=16Xh4iq6guHWT92MAr-NCOzStZqMTdnmU' $DMIRROR ;;
+        20) bash /tmp/InstallNET.sh $NETCMD -dd 'https://drive.google.com/open?id=1rzkH24tCtwPvcT3HquoF9tZgcj022voG' $DMIRROR ;;
+        21) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1wtUWaag5pVwmN-QUfTSJ6xbNWulLbLy-' $DMIRROR ;;
+        22) bash /tmp/InstallNET.sh $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1GUdLXMwBx4uM8-iBU6ClcD5HRmkURuEl' $DMIRROR ;;
+        23) RHELImageBootConf; bash /tmp/InstallNET.sh $NETCMD -dd "https://odc.cxthhhhh.com/d/SyStem/CentOS/CentOS_8.X_x64_Legacy_NetInstallation_Stable_v6.8.vhd.gz" $DMIRROR ;;
+        24) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1fGsryTy6xZi5EC9GlOpvqTK-Uty0_gFo" $DMIRROR ;;
+        25) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1LxzyhswxkpI_BqUolnI0HyawNvPQJHAO" $DMIRROR ;;
+        26) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1SKUFoUujxh3sTtLIWWcBW8riibd1q5ka" $DMIRROR ;;
+        27) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1GUz7Suysv0S7qRuyB9vQ_IGkTbFckFcE" $DMIRROR ;;
+        28) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eA35gszGgUXI6P7dR5g5sqsIPnMJwUuN" $DMIRROR ;;
+        29) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1a8gEiZTEG5aeTrTflP9icAZF-HJhYU1N" $DMIRROR ;;
+        30) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eboWyVSkt1Hcnsl2dqgA-8p40Qbk2QvG" $DMIRROR ;;
+        31) bash /tmp/InstallNET.sh $NETCMD -dd "https://www.lefu.men/gdzl/?id=1IY8IyLt66uKhZ7Jb4QzEb_bTUUqU76_3" $DMIRROR ;;
+        32) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win10-ltsc-x64-cn.vhd.gz ' $DMIRROR ;;
+        33) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win7-ent-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
+        34) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win8.1-ent-x64-cn.vhd.gz ' $DMIRROR ;;
+        35) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2008r2-data-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
+        36) bash /tmp/InstallNET.sh $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2012r2-data-x64-cn.vhd.gz ' $DMIRROR ;;
         100) bash /tmp/InstallNET.sh $NETCMD -dd "$DDURL" $DMIRROR ;;
         *) echo "Wrong input!" ;;
     esac
