@@ -185,7 +185,7 @@ RUN(){
     N=$1
     if [[ $N == 99 ]];then print_linux; print_menu win; fi
     if [[ $N == 100 ]];then read -p "Input your url: " DDURL; fi
-    read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]" input
+    read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]: " input
     if [[ -z $input ]];then input=$DEFAULT_CN; fi
     case $input in
         [yY][eE][sS]|[yY]) CN=true ;;
