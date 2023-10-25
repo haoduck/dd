@@ -83,7 +83,7 @@ fi
 if [[ `command -v apt-get` ]];then apt-get update && apt-get install -y curl wget file xz-utils; fi
 if [[ `command -v yum` ]];then yum install -y curl wget file xz; fi
 
-curl -sSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
+curl -skSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/MoeClub/Note@latest/InstallNET.sh
 
@@ -96,7 +96,7 @@ case $dhcp in
 esac
 GET_NETCMD
 
-geo=$(curl -fsSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fsSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla|sed 's/,/,\n/g') || geo=''
+geo=$(curl -fskSL --connect-timeout 5 -m 10 http://ipinfo.io/json) || geo=$(curl -fskSL --connect-timeout 5 -m 10 http://api.ip.sb/geoip -A Mozilla|sed 's/,/,\n/g') || geo=''
 if [[ $(echo "$geo" | grep "country"|grep "CN") ]];then
     DEFAULT_CN=Y
 else
